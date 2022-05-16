@@ -1,3 +1,4 @@
-puts "Hello"
-print "world!"
+# frozen_string_literal: true
 
+puts 'Hello'
+print 'world!'
