@@ -14,3 +14,6 @@ names.each do |name|
   puts "#{x}. #{name}"
   x += 1
 end
+
+# can do this with index as well
+names.each_with_index { |name, index| puts "#{index + 1}. #{name}" }
