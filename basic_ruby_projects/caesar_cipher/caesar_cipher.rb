@@ -1,12 +1,13 @@
 def caesar_cipher(string, number_to_shift)
   encrypted_string_array = []
   string.chars.each do |char|
-    shifted_char = char.match(/\w/) ? get_shifted_char_when_alphanumeric(char, number_to_shift) : char
+    shifted_char = char.match(/\w/) ? get_shifted_char_when_alphanumeric_clever(char, number_to_shift) : char
     encrypted_string_array << shifted_char
   end
   encrypted_string_array.join
 end
 
+# original attempt
 def get_shifted_char_when_alphanumeric(char, number_to_shift)
   original_char_ord = char.ord
   upper_case_ord_limit = 90 - number_to_shift
@@ -25,3 +26,11 @@ def get_shifted_char_when_alphanumeric(char, number_to_shift)
   end
   new_ord.chr
 end
+
+# adapted from looking at others solutions
+def get_shifted_char_when_alphanumeric_clever(char, number_to_shift)
+  base_ord = char.ord < 91 ? 65 : 97
+  new_ord = (((char.ord - base_ord) + number_to_shift) % 26) + base_ord
+  new_ord.chr
+end
+
